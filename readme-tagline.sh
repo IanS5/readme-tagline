@@ -58,7 +58,7 @@ html_extract_first_sentance() {
 
 if has_executable 'pandoc'; then
     readme="$(find_readme "$1")"
-    pandoc --standalone --to html --output - "$readme" | html_extract_first_sentance
+    pandoc --standalone --quiet --to html --output - "$readme" | html_extract_first_sentance
 else
     echo_err "please install pandoc (https://pandoc.org)"
     exit 1
