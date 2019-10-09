@@ -41,15 +41,15 @@ html_extract_first_sentance() {
     #  3. delete everything after the first end paragraph tag
     #  4. remove html tags
     #  5. delete empty lines
-    #  6. remove everything after the first period
+    #  6. remove everything after the first period which is followed by whitespace
     #  7. if the line doesn't end in a period and isn't empty, insert an elipse
 
-    sed -ne '/^<p>/,/<\/p>/p' | \
-    tr '\n' ' '               | \
-    sed -e 's/<\/p>.*$//g'      \
-        -e 's/<[^>]*>//g'       \
-        -e '/^[[:space:]]*$/d'  \
-        -e 's/\..*$/./'         \
+    sed -ne '/^<p>/,/<\/p>/p' |   \
+    tr '\n' ' '               |   \
+    sed -e 's/<\/p>.*$//g'        \
+        -e 's/<[^>]*>//g'         \
+        -e '/^[[:space:]]*$/d'    \
+        -e 's/\.[[:space:]].*/./' \
         -e '/[^\.]$/s/$/.../'
 }
 
