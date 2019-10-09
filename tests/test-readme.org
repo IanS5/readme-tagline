@@ -1,7 +1,7 @@
 #+TITLE: Hello, World
 
-Lorem Ipsum, *bold* end of
-sentance. Hello
+Lorem Ipsum, /italics/ end of
+sentence. Hello
 New Line
 
 1. list

@@ -10,12 +10,6 @@ echo_err() {
     echo "$@" 1>&2
 }
 
-find_readme_in_directory() {
-    ls -A1 "$1"         | \
-    grep -i '^readme\.' | \
-    head -n1
-}
-
 find_readme() {
     if test -z "$1"; then
         echo_err "expecting at least one argument"
@@ -25,12 +19,15 @@ find_readme() {
     if test -f "$1"; then
         echo "$1"
     elif test -d "$1"; then
-        readme="$(find_readme_in_directory "$1")"
-        if test -z "$readme"; then
-            echo_err "could not find README in directory"
-            exit 1
-        fi
-        echo "$1/$readme"
+        for f in "$1"/[rR][eE][aA][dD][mM][eE].*; do
+            if test -f "$f"; then
+                echo "$f"
+                return 0
+            fi
+        done
+
+        echo_err "could not find README.md in \"$1\""
+        exit 1
     else
         echo_err "no such file or directory"
         exit 1

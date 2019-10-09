@@ -1,8 +1,8 @@
 Hello, World
 =============
 
-Lorem Ipsum, _underline_ end of
-sentance. Hello
+Lorem Ipsum, italics end of
+sentence. Hello
 New Line
 
 1. list

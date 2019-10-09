@@ -1,7 +1,7 @@
 # Hello, World
 
-Lorem Ipsum, _italics_ end of 
-sentance. Hello
+Lorem Ipsum, _italics_ end of
+sentence. Hello
 New Line
 
 1. list
