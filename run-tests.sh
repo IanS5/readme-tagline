@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/env sh
 
 SHELLS="ksh bash zsh ash dash"
 SCRIPT='./readme-tagline.sh'
